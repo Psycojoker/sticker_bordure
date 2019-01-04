@@ -90,6 +90,8 @@ def stickerify_bordure(image, tdrawable, black_grow=3, white_grow=12, shadow=Tru
     pdb.gimp_image_undo_group_end(image)
     pdb.gimp_context_pop()
 
+    pdb.gimp_layer_set_name(image.active_layer, "Sticker bordure")
+
     pdb.gimp_displays_flush()
 
 
