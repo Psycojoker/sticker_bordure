@@ -97,8 +97,8 @@ def stickerify_bordure(image, tdrawable, black_grow=3, white_grow=12, shadow=Tru
 
 gimpfu.register(
     "python_stickerify_bordure",
-    "Put a sticker bordure arround the image",
-    "Put a sticker bordure arround the image",
+    "Put a sticker bordure arround the current layer",
+    "Put a sticker bordure arround the current layer",
     "Laurent Peuch",
     "Laurent Peuch",
     "2018",
