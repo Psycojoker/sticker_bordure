@@ -19,13 +19,11 @@ def stickerify_bordure(image, tdrawable, black_grow=3, white_grow=12, shadow=Tru
         pdb.gimp_edit_bucket_fill(current_layer, 0, 0, 100, 255, 0, 0, 0)
 
     def set_colors():
-        pass
+        pdb.gimp_context_set_foreground((255, 255, 255))
+        pdb.gimp_context_set_background((0, 0, 0))
 
     pdb.gimp_context_push()
     pdb.gimp_image_undo_group_start(image)
-
-    pdb.gimp_context_set_foreground((255, 255, 255))
-    pdb.gimp_context_set_background((0, 0, 0))
 
     set_colors()
 
