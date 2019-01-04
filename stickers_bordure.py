@@ -17,7 +17,7 @@ import gimpfu
 from gimpfu import pdb
 
 
-def stickerify_bordure(image, tdrawable):
+def stickerify_bordure(image, tdrawable, black_grow=3, white_grow=12, shadow=True):
     def duplicate_layer():
         copy = current_layer.copy()
         image.add_layer(copy)
@@ -49,26 +49,29 @@ def stickerify_bordure(image, tdrawable):
     # alpha to selection
     pdb.gimp_image_select_item(image, 0, current_layer)
 
-    pdb.gimp_selection_grow(image, 3)
+    pdb.gimp_selection_grow(image, black_grow)
     fill_black()
 
     second_layer = duplicate_layer()
 
-    pdb.gimp_selection_grow(image, 12)
+    pdb.gimp_selection_grow(image, white_grow)
     fill_white()
 
-    duplicate_layer()
+    if shadow:
+        duplicate_layer()
 
-    fill_black()
+        fill_black()
 
-    current_layer.translate(8, 8)
+        current_layer.translate(8, 8)
 
-    pdb.gimp_selection_all(image)
-    pdb.plug_in_gauss(image, current_layer, 20, 20, 0)
-    pdb.gimp_layer_set_opacity(current_layer, 70)
+        pdb.gimp_selection_all(image)
+        pdb.plug_in_gauss(image, current_layer, 20, 20, 0)
+        pdb.gimp_layer_set_opacity(current_layer, 70)
 
     pdb.gimp_image_merge_down(image, second_layer, 0)
-    pdb.gimp_image_merge_down(image, image.active_layer, 0)
+
+    if shadow:
+        pdb.gimp_image_merge_down(image, image.active_layer, 0)
 
     pdb.gimp_image_undo_group_end(image)
     pdb.gimp_context_pop()
@@ -83,7 +86,11 @@ gimpfu.register(
     "2018",
     "<Image>/Image/Stickerify",
     "",
-    [],
+    [
+        (gimpfu.PF_ADJUSTMENT, "black_grow", "Size of black bordure", 3, (1, 200, 1, 3, 0, 0)),
+        (gimpfu.PF_ADJUSTMENT, "black_grow", "Size of white bordure", 12, (1, 200, 1, 3, 0, 0)),
+        (gimpfu.PF_TOGGLE, "shadow", "Display shadow", True),
+    ],
     [],
     stickerify_bordure,
 )
