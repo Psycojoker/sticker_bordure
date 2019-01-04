@@ -1,19 +1,6 @@
 #!/usr/bin/env python
 
-# -----------------------------------------------------------------
-# doc
-
-# fill the selection with withe (foreground color)
-# pdb.gimp_edit_bucket_fill(current_layer, 0, 0, 100, 255, 0, 0, 0)
-
-# black
-# pdb.gimp_edit_bucket_fill(current_layer, 1, 0, 100, 255, 0, 0, 0)
-
-# doc
-# -----------------------------------------------------------------
-
 import gimpfu
-# import gimp
 from gimpfu import pdb
 
 
