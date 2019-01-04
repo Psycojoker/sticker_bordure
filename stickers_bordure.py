@@ -35,6 +35,7 @@ def stickerify_bordure(image, tdrawable):
         pass
 
     pdb.gimp_context_push()
+    pdb.gimp_image_undo_group_start(image)
 
     pdb.gimp_context_set_foreground((255, 255, 255))
     pdb.gimp_context_set_background((0, 0, 0))
@@ -69,6 +70,7 @@ def stickerify_bordure(image, tdrawable):
     pdb.gimp_image_merge_down(image, second_layer, 0)
     pdb.gimp_image_merge_down(image, image.active_layer, 0)
 
+    pdb.gimp_image_undo_group_end(image)
     pdb.gimp_context_pop()
 
 
