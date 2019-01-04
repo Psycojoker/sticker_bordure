@@ -90,7 +90,7 @@ gimpfu.register(
     "",
     [
         (gimpfu.PF_ADJUSTMENT, "black_grow", "Size of black bordure", 3, (1, 200, 1, 3, 0, 0)),
-        (gimpfu.PF_ADJUSTMENT, "black_grow", "Size of white bordure", 12, (1, 200, 1, 3, 0, 0)),
+        (gimpfu.PF_ADJUSTMENT, "white_grow", "Size of white bordure", 12, (1, 200, 1, 3, 0, 0)),
         (gimpfu.PF_TOGGLE, "shadow", "Display shadow", True),
     ],
     [],
