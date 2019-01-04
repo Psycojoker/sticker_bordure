@@ -86,7 +86,7 @@ gimpfu.register(
     "Laurent Peuch",
     "Laurent Peuch",
     "2018",
-    "<Image>/Image/Stickerify",
+    "<Image>/Filters/Artistic/Stickerify",
     "",
     [
         (gimpfu.PF_ADJUSTMENT, "black_grow", "Size of black bordure", 3, (1, 200, 1, 3, 0, 0)),
