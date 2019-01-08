@@ -4,7 +4,7 @@ import gimpfu
 from gimpfu import pdb
 
 
-def stickerify_bordure(image, tdrawable, black_grow=3, white_grow=12, shadow=True, canvas_increase=0):
+def stickerify_bordure(image, current_layer, black_grow=3, white_grow=12, shadow=True, canvas_increase=0):
     def duplicate_layer():
         copy = current_layer.copy()
         image.add_layer(copy)
@@ -29,8 +29,6 @@ def stickerify_bordure(image, tdrawable, black_grow=3, white_grow=12, shadow=Tru
     pdb.gimp_selection_none(image)
 
     set_colors()
-
-    current_layer = image.active_layer
 
     if canvas_increase:
         width, height = image.width, image.height
