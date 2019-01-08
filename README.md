@@ -27,15 +27,15 @@ For gimp 2.8, haven't tested on other versions but it should work too.
 
 ```bash
 sudo apt install gimp-python
-wget https://raw.githubusercontent.com/Psycojoker/sticker_bordure/master/stickers_bordure.py
-chmod +x stickers_bordure.py
+git clone https://github.com/Psycojoker/sticker_bordure
+cd stickers_bordure
 
 # local install
 mkdir -p ~/.gimp-2.8/plug-ins/
-mv stickers_bordure.py ~/.gimp-2.8/plug-ins/
+ln -s $(pwd)/stickers_bordure.py ~/.gimp-2.8/plug-ins/
 
 # global install
-sudo mv stickers_bordure.py /usr/lib/gimp/2.8/plug-ins/
+sudo ln -s $(pwd)/stickers_bordure.py ~/usr/lib/gimp/2.8/plug-ins/
 ```
 
 Licence
