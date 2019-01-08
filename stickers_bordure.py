@@ -25,6 +25,9 @@ def stickerify_bordure(image, tdrawable, black_grow=3, white_grow=12, shadow=Tru
     pdb.gimp_context_push()
     pdb.gimp_image_undo_group_start(image)
 
+    # clean selection to avoid bugs
+    pdb.gimp_selection_none(image)
+
     set_colors()
 
     current_layer = image.active_layer
@@ -74,6 +77,7 @@ def stickerify_bordure(image, tdrawable, black_grow=3, white_grow=12, shadow=Tru
 
     pdb.gimp_layer_set_name(image.active_layer, "Sticker bordure")
 
+    pdb.gimp_selection_none(image)
     pdb.gimp_image_undo_group_end(image)
     pdb.gimp_context_pop()
 
