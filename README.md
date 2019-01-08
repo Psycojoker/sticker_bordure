@@ -28,7 +28,7 @@ For gimp 2.8, haven't tested on other versions but it should work too.
 ```bash
 sudo apt install gimp-python
 git clone https://github.com/Psycojoker/sticker_bordure
-cd stickers_bordure
+cd sticker_bordure
 
 # local install
 mkdir -p ~/.gimp-2.8/plug-ins/
