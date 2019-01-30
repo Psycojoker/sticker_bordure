@@ -4,7 +4,7 @@ import gimpfu
 from gimpfu import pdb
 
 
-def stickerify_bordure(image, current_layer, black_grow=3, white_grow=12, shadow=True, canvas_increase=0):
+def stickerify_bordure(image, current_layer, black_grow=3, white_grow=12, shadow=True, canvas_increase=0, resize=False):
     def duplicate_layer():
         copy = current_layer.copy()
         image.add_layer(copy)
@@ -76,6 +76,10 @@ def stickerify_bordure(image, current_layer, black_grow=3, white_grow=12, shadow
     pdb.gimp_layer_set_name(image.active_layer, "Sticker bordure")
 
     pdb.gimp_selection_none(image)
+
+    if resize:
+        pdb.gimp_image_scale(image, 512, 512)
+
     pdb.gimp_image_undo_group_end(image)
     pdb.gimp_context_pop()
 
@@ -96,6 +100,7 @@ gimpfu.register(
         (gimpfu.PF_ADJUSTMENT, "white_grow", "Size of white bordure", 12, (1, 200, 1, 3, 0, 0)),
         (gimpfu.PF_TOGGLE, "shadow", "Display shadow", True),
         (gimpfu.PF_ADJUSTMENT, "canvas_increase", "Increase canvas size (in %)", 0, (0, 100, 1, 3, 0, 0)),
+        (gimpfu.PF_TOGGLE, "resize", "Resize to 512x512", False),
     ],
     [],
     stickerify_bordure,
