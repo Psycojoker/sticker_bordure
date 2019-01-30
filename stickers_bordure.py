@@ -96,8 +96,8 @@ gimpfu.register(
     "<Image>/Filters/Artistic/Stickerify",
     "",
     [
-        (gimpfu.PF_ADJUSTMENT, "black_grow", "Size of black bordure", 3, (1, 200, 1, 3, 0, 0)),
-        (gimpfu.PF_ADJUSTMENT, "white_grow", "Size of white bordure", 12, (1, 200, 1, 3, 0, 0)),
+        (gimpfu.PF_ADJUSTMENT, "black_grow", "Size of black bordure", 3, (0, 200, 1, 3, 0, 0)),
+        (gimpfu.PF_ADJUSTMENT, "white_grow", "Size of white bordure", 12, (0, 200, 1, 3, 0, 0)),
         (gimpfu.PF_TOGGLE, "shadow", "Display shadow", True),
         (gimpfu.PF_ADJUSTMENT, "canvas_increase", "Increase canvas size (in %)", 0, (0, 100, 1, 3, 0, 0)),
         (gimpfu.PF_TOGGLE, "resize", "Resize to 512x512", False),
