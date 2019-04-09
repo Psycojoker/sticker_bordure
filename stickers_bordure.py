@@ -30,6 +30,19 @@ def stickerify_bordure(image, current_layer, black_grow=3, white_grow=12, shadow
 
     set_colors()
 
+    # resize early to avoid compressing the bordure
+    if resize:
+        width, height = image.width, image.height
+
+        if width == height:
+            new_width, new_height = 512, 512
+        elif width > height:
+            new_width, new_height = 512, int(height * (512.0 / width))
+        elif width < height:
+            new_width, new_height = int(width * (512.0 / height)), 512
+
+        pdb.gimp_image_scale(image, new_width, new_height)
+
     if canvas_increase:
         width, height = image.width, image.height
 
@@ -76,18 +89,6 @@ def stickerify_bordure(image, current_layer, black_grow=3, white_grow=12, shadow
     pdb.gimp_layer_set_name(image.active_layer, "Sticker bordure")
 
     pdb.gimp_selection_none(image)
-
-    width, height = image.width, image.height
-
-    if width == height:
-        new_width, new_height = 512, 512
-    elif width > height:
-        new_width, new_height = 512, int(height * (512.0 / width))
-    elif width < height:
-        new_width, new_height = int(width * (512.0 / height)), 512
-
-    if resize:
-        pdb.gimp_image_scale(image, new_width, new_height)
 
     pdb.gimp_image_undo_group_end(image)
     pdb.gimp_context_pop()
