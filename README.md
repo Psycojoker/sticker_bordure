@@ -38,6 +38,14 @@ ln -s $(pwd)/stickers_bordure.py ~/.gimp-2.8/plug-ins/
 sudo ln -s $(pwd)/stickers_bordure.py ~/usr/lib/gimp/2.8/plug-ins/
 ```
 
+For gimp 2.10,
+
+```bash
+# local install
+mkdir -p ~/.config/GIMP/2.10/plug-ins/
+ln -s $(pwd)/stickers_bordure.py ~/.config/GIMP/2.10/plug-ins/
+```
+
 Licence
 =======
 
